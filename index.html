@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>QR Code</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="basketball-icon">🏀</div>
+        <h1>QR CODE BASQUETE</h1>
+        <p class="subtitle">BR@1@N</p>
+
+        <form id="qrForm">
+            <div class="form-group">
+                <label for="data">URL ou Texto:</label>
+                <input type="text" id="data" placeholder="Digite a URL ou texto" value="https://www.nba.com">
+                <span class="error" id="dataError">Por favor, insira uma URL ou texto válido</span>
+            </div>
+
+            <div class="form-group">
+                <label for="size">Tamanho do QR Code:</label>
+                <select id="size">
+                    <option value="150">Pequeno (150x150)</option>
+                    <option value="200" selected>Médio (200x200)</option>
+                    <option value="300">Grande (300x300)</option>
+                    <option value="400">Extra Grande (400x400)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fgColor">
+                    Cor do QR Code:
+                    <span class="color-preview" id="fgPreview"></span>
+                </label>
+                <select id="fgColor">
+                    <option value="0-0-0" selected>⚫ Preto</option>
+                    <option value="255-140-0">🟠 Laranja</option>
+                    <option value="255-69-0">🔶 Laranja Escuro</option>
+                    <option value="139-69-19">🟤 Marrom Basquete</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bgColor">
+                    Cor de Fundo:
+                    <span class="color-preview" id="bgPreview"></span>
+                </label>
+                <select id="bgColor">
+                    <option value="255-255-255" selected>⚪ Branco</option>
+                    <option value="255-140-0">🟠 Laranja</option>
+                    <option value="0-0-0">⚫ Preto</option>
+                    <option value="245-245-220">🟡 Bege</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="charset">Codificação:</label>
+                <select id="charset">
+                    <option value="UTF-8" selected>UTF-8</option>
+                    <option value="ISO-8859-1">ISO-8859-1</option>
+                </select>
+            </div>
+
+            <button type="submit" id="generateBtn">🏀 Gerar QR Code</button>
+        </form>
+
+        <div class="loading" id="loading">Gerando QR Code</div>
+
+        <div id="qrcodeContainer">
+            <img id="qrcodeImage" alt="QR Code gerado">
+        </div>
+        
+        <button class="download-btn" id="downloadBtn" style="display: none;">⬇Baixar QR Code</button>
+
+        <div class="api-info">
+            Powered by goQR.me API
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
